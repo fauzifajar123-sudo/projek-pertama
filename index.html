@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun 🌹</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- CONFETTI CANVAS -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg" />
+    </audio>
+    <button class="music-btn" id="music-toggle" title="Toggle Music">
+        <svg id="music-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+        </svg>
+        <svg id="music-icon-off" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <line x1="1" y1="1" x2="23" y2="23" />
+            <path d="M9 18V5l12-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="16" r="3" />
+        </svg>
+    </button>
+
+    <!-- ==============================
+         PAGE 1: ENVELOPE
+    =============================== -->
+    <section class="page active" id="page-1">
+        <div class="floating-petals" id="petals-container"></div>
+        <div class="page-content center-content">
+            <p class="tagline">Untuk kamu yang spesial...</p>
+            <div class="envelope-wrapper" id="envelope-wrapper">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap" id="envelope-flap"></div>
+                    <div class="envelope-body"></div>
+
+                    <div class="envelope-letter" id="envelope-letter">
+                        <div class="halo-container">
+                            <div class="halo"></div>
+                        </div>
+                        <div class="wings-container">
+                            <div class="wing wing-left"></div>
+                            <div class="wing wing-right"></div>
+                        </div>
+                        <div class="letter-content hbd-layout">
+                            <h1 class="letter-title-hbd">Happy<br />Birthday aivi</h1>
+                            <div class="hbd-underline">
+                                <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                                    <path d="M0,10 Q50,0 100,10" stroke="var(--crimson)" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="wax-seal-letter"></div>
+                    </div>
+                    <div class="envelope-bottom"></div>
+                </div>
+
+                <!-- Pop Out Effects -->
+                <div class="pop-out-container">
+                    <!-- Left Side -->
+                    <div class="pop-item pop-flower flower-1">🌸</div>
+                    <div class="pop-item pop-flower flower-2">🌺</div>
+                    <div class="pop-item pop-photo photo-left ripped-heart">
+                        <div class="photo-inner">
+                            <img src="script/pandu1.jpeg" alt="Pandu 1" />
+                        </div>
+                    </div>
+                    <div class="pop-item pop-butterfly butterfly-1">
+                        <div class="butterfly-wing bw-left">🦋</div>
+                    </div>
+
+                    <!-- Right Side -->
+                    <div class="pop-item pop-flower flower-3">🌸</div>
+                    <div class="pop-item pop-flower flower-4">🌺</div>
+
+                    <!-- 3 Polaroids Right -->
+                    <div class="pop-item pop-photo polaroid pol-1">
+                        <div class="photo-inner">
+                            <img src="script/pandu2.jpeg" alt="Pandu 2" />
+                        </div>
+                    </div>
+                    <div class="pop-item pop-photo polaroid pol-2">
+                        <div class="photo-inner">
+                            <img src="script/pandu3.jpeg" alt="Pandu 3" />
+                        </div>
+                    </div>
+                    <div class="pop-item pop-photo polaroid pol-3">
+                        <div class="photo-inner">
+                            <img src="script/pandu4.jpeg" alt="Pandu 4" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="click-hint" id="click-hint" style="display:none;"></p>
+            <button class="btn-primary hidden" id="btn-surprise">Buka Kejutan 🎁</button>
+        </div>
+    </section>
+
+    <!-- ==============================
+         PAGE 2: MEMORY CHOICE
+    =============================== -->
+    <section class="page" id="page-2">
+        <div class="page-content">
+            <div class="page-header">
+                <p class="page-eyebrow">Kenangan kita</p>
+                <h2 class="page-title">Pilih Kenangan Kita</h2>
+                <div class="title-divider">
+                    <span></span>
+                    <span class="diamond">♦</span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="cards-grid">
+                <!-- Journey Card -->
+                <div class="memory-card" data-page="page-3">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="6" width="20" height="15" rx="2" />
+                            <path d="M17 2l5 4H2l5-4z" />
+                            <circle cx="12" cy="13" r="3" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Journey</h3>
+                    <p class="card-desc">Setiap perjalanan yang kita lalui bersama</p>
+                    <span class="card-arrow">→</span>
+                </div>
+
+                <!-- Moment Card -->
+                <div class="memory-card featured" data-page="page-4">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Moment</h3>
+                    <p class="card-desc">Momen terbaik yang tak terlupakan</p>
+                    <span class="card-arrow">→</span>
+                </div>
+
+                <!-- Game Card -->
+                <div class="memory-card" data-page="page-6">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Game</h3>
+                    <p class="card-desc">Main bareng yuk</p>
+                    <span class="card-arrow">→</span>
+                </div>
+
+                <!-- Nada yang Tertinggal Card -->
+                <div class="memory-card" data-page="page-5">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13" />
+                            <circle cx="6" cy="18" r="3" />
+                            <circle cx="18" cy="16" r="3" />
+                            <path d="M9 9s3-2 12-2" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Nada yang Tertinggal</h3>
+                    <p class="card-desc">Lagu-lagu yang menemani kita</p>
+                    <span class="card-arrow">→</span>
+                </div>
+
+                <!-- Playlist Lagu Card -->
+                <div class="memory-card" data-page="page-7">
+                    <div class="card-glow"></div>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M2 12h20" />
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <polygon points="10,8 16,12 10,16" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Playlist Lagu</h3>
+                    <p class="card-desc">Dengarkan lagu favorit kita</p>
+                    <span class="card-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         PAGE 3: JOURNEY / GALLERY
+    =============================== -->
+    <section class="page" id="page-3">
+        <div class="page-content scrapbook-layout">
+            <div class="scrapbook-container">
+                <button class="btn-back scrap-back" data-page="page-2">← Kembali</button>
+
+                <!-- Background Checkers -->
+                <div class="scrap-bg-checkers"></div>
+
+                <div class="scrap-text-top">\\ 30-04-2010</div>
+
+                <!-- Polaroids -->
+                <div class="scrap-item scrap-pol pol-main">
+                    <div class="pol-photo img-red-girl"></div>
+                    <div class="scrap-star red-star star-pol-main"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
+                    </div>
+                </div>
+
+                <div class="scrap-item scrap-pol pol-sunset">
+                    <div class="pol-photo img-orange"></div>
+                    <div class="pol-text">SUNSET W/ U</div>
+                    <div class="scrap-star yellow-star star-sunset"></div>
+                </div>
+
+                <div class="scrap-item scrap-pol pol-sweet">
+                    <div class="pol-photo img-orange"></div>
+                    <div class="pol-text">SWEET W/...</div>
+                    <div class="scrap-wax-seal">
+                        <div class="wax-text">DEAD POETS SOCIETY</div>
+                        <div class="wax-inner"></div>
+                    </div>
+                </div>
+
+                <div class="scrap-item scrap-pol pol-soho">
+                    <div class="pol-photo img-orange-girl"></div>
+                    <div class="pol-text">SOHO, 30-04-2010</div>
+                    <div class="scrap-orange-slice slice-soho"></div>
+                </div>
+
+                <!-- Film Strip -->
+                <div class="scrap-item scrap-film">
+                    <div class="film-holes left">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="film-photo img-red-girl-close"></div>
+                    <div class="film-holes right">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="scrap-star red-star star-film1"></div>
+                    <div class="scrap-star red-star star-film2"></div>
+                    <div class="scrap-coca-cola coca-film">
+                        <div class="coca-cola-text">Coca-Cola</div>
+                    </div>
+                </div>
+
+                <!-- Oval Frame -->
+                <div class="scrap-item scrap-oval-frame">
+                    <div class="oval-border">
+                        <div class="oval-photo img-portrait"></div>
+                    </div>
+                    <div class="scrap-ribbon">
+                        <div class="bow-left"></div>
+                        <div class="bow-right"></div>
+                        <div class="bow-center"></div>
+                        <div class="tail-left"></div>
+                        <div class="tail-right"></div>
+                    </div>
+                    <div class="scrap-star yellow-star star-oval"></div>
+                </div>
+
+                <!-- Cassette -->
+                <div class="scrap-item scrap-cassette">
+                    <div class="cassette-bg">
+                        <div class="cassette-label">
+                            <div class="cassette-top-text">♪ NADA YANG TERTINGGAL</div>
+                            <div class="cassette-wheels">
+                                <div class="wheel">
+                                    <div class="spokes"></div>
+                                </div>
+                                <div class="cassette-window"></div>
+                                <div class="wheel">
+                                    <div class="spokes"></div>
+                                </div>
+                            </div>
+                            <div class="cassette-bottom-text">BLACKWOOD</div>
+                        </div>
+                    </div>
+                    <div class="scrap-star yellow-star star-cassette"></div>
+                </div>
+
+                <!-- Ticket -->
+                <div class="scrap-item scrap-ticket">
+                    <div class="ticket-inner">
+                        <div class="ticket-text">AROUND<br />THE<br />WORLD</div>
+                    </div>
+                    <div class="ticket-hole left"></div>
+                    <div class="ticket-hole right"></div>
+                    <div class="scrap-star yellow-star star-ticket"></div>
+                </div>
+
+                <!-- Money -->
+                <div class="scrap-item scrap-money">
+                    <div class="money-stack bottom"></div>
+                    <div class="money-stack middle"></div>
+                    <div class="money-bill">
+                        <div class="money-inner">
+                            <div class="money-corner tl">20</div>
+                            <div class="money-corner tr">20</div>
+                            <div class="money-center">DOLLARS</div>
+                            <div class="money-corner bl">20</div>
+                            <div class="money-corner br">20</div>
+                        </div>
+                    </div>
+                    <div class="scrap-orange-slice slice-money"></div>
+                </div>
+
+                <!-- Airplane -->
+                <div class="scrap-item scrap-airplane">
+                    <div class="plane-body">
+                        <div class="plane-wing-top"></div>
+                        <div class="plane-wing-bottom"></div>
+                        <div class="plane-tail"></div>
+                        <div class="plane-window"></div>
+                    </div>
+                </div>
+
+                <!-- Clock -->
+                <div class="scrap-item scrap-clock">
+                    <div class="clock-outer">
+                        <div class="clock-inner">
+                            <div class="clock-numbers">
+                                <span class="n12">12</span>
+                                <span class="n3">3</span>
+                                <span class="n6">6</span>
+                                <span class="n9">9</span>
+                            </div>
+                            <div class="clock-center"></div>
+                            <div class="clock-hand hand-hour"></div>
+                            <div class="clock-hand hand-min"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elements around bottom -->
+                <div class="scrap-item scrap-rose">🌹</div>
+                <div class="scrap-item scrap-red-girl-cut">
+                    <div class="cut-photo img-red-girl-peeking"></div>
+                </div>
+
+                <!-- Orange CD / Card -->
+                <div class="scrap-item scrap-orange-card">
+                    <div class="card-bg">
+                        <div class="card-image img-orange-guy"></div>
+                        <div class="card-grooves"></div>
+                    </div>
+                    <div class="scrap-flower flower-card">🌸</div>
+                </div>
+
+                <!-- Trust Sticker -->
+                <div class="scrap-item scrap-trust-sticker">
+                    in trees<br />we trust
+                </div>
+
+                <!-- Fish Sticker -->
+                <div class="scrap-item scrap-fish-sticker">
+                    <div class="fish-body">
+                        <div class="fish-eye"></div>
+                        <div class="fish-fin top"></div>
+                        <div class="fish-fin bottom"></div>
+                        <div class="fish-tail"></div>
+                    </div>
+                </div>
+
+                <!-- Green TAP TO... Sticker -->
+                <div class="scrap-item scrap-tap-sticker">TAP TO OPEN</div>
+
+                <!-- Main Girl Photo Background -->
+                <div class="scrap-item scrap-main-girl">
+                    <div class="girl-photo img-main-girl"></div>
+                </div>
+
+                <!-- Second Girl Photo -->
+                <div class="scrap-item scrap-second-girl">
+                    <div class="girl-photo img-second-girl"></div>
+                </div>
+
+                <!-- Receipt -->
+                <div class="scrap-item scrap-receipt-box">
+                    <div class="receipt-header">950868</div>
+                    <div class="receipt-title">Thank You!</div>
+                    <div class="receipt-line"></div>
+                    <div class="receipt-no">950868</div>
+                    <div class="receipt-text">
+                        JUST ONE<br />
+                        HAZELNUT<br />
+                        ICED COFFEE<br />
+                        PLEASE
+                    </div>
+                </div>
+
+                <!-- Tree Ripened Lemon -->
+                <div class="scrap-item scrap-lemon-sticker">
+                    <span>Tree<br />Ripened<br /><small>brand</small></span>
+                </div>
+
+                <!-- Photobooth Strip -->
+                <div class="scrap-item scrap-photobooth">
+                    <div class="pb-photo img-pb-1"></div>
+                    <div class="pb-photo img-pb-2"></div>
+                    <div class="pb-photo img-pb-3"></div>
+                    <div class="pb-photo img-pb-4"></div>
+                </div>
+
+                <!-- Peach Sticker -->
+                <div class="scrap-item scrap-peach-sticker">
+                    <div class="peach-inner">🍑</div>
+                </div>
+
+                <!-- Pepsi Sticker -->
+                <div class="scrap-item scrap-pepsi-sticker">
+                    <div class="pepsi-top"></div>
+                    <div class="pepsi-white"><span class="pepsi-text">Pepsi</span></div>
+                    <div class="pepsi-bottom"></div>
+                </div>
+
+                <!-- White Flower -->
+                <div class="scrap-item scrap-white-flower">
+                    <div class="w-petal p1"></div>
+                    <div class="w-petal p2"></div>
+                    <div class="w-petal p3"></div>
+                    <div class="w-petal p4"></div>
+                    <div class="w-petal p5"></div>
+                    <div class="w-center"></div>
+                </div>
+
+                <!-- Blue Ribbon -->
+                <div class="scrap-item scrap-blue-ribbon">
+                    <div class="b-bow left"></div>
+                    <div class="b-bow right"></div>
+                    <div class="b-center"></div>
+                    <div class="b-tail left"></div>
+                    <div class="b-tail right"></div>
+                </div>
+
+                <div class="scrap-star yellow-star star-bottom-right"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         PAGE 4: MOMENT
+    =============================== -->
+    <section class="page" id="page-4">
+        <div class="page-content moment-scallop-layout">
+            <button class="btn-back btn-tap-back" data-page="page-2">TAP TO BACK</button>
+            <div class="moment-scene">
+                <!-- Single Large Photo -->
+                <div class="moment-single-photo">
+                    <div class="gold-frame-container">
+                        <div class="gold-frame">
+                            <div class="moment-photo moment-photo-large img-moment-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center text card with zigzag edges -->
+                <div class="zigzag-card">
+                    <div class="zigzag-edge zigzag-top"></div>
+                    <div class="zigzag-body">
+                        <div class="zigzag-content">
+                            <div class="my-love-header">
+                                <div class="flower-sketch left"></div>
+                                <div class="my-love-title">My Love</div>
+                                <div class="flower-sketch right"></div>
+                            </div>
+                            <div class="zigzag-text">
+                                <span class="typing-text">Happy Birthday! you make<br />
+                                    I just want you to know how special you are to me. You bring so much happiness
+                                    into my life, and I'm really grateful to have you by my side.<br />
+                                    On your special day, I wish you all the happiness, success, and love that you
+                                    truly deserve. I hope this year brings you closer to your dreams and fills your
+                                    days with beautiful moments.<br />
+                                    Thank you for being you, for caring, for making me smile even on my worst days.
+                                    I'm lucky to have you.<br />
+                                    Once again, happy birthday. I hope today is as amazing as you are. 🎂✨</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zigzag-edge zigzag-bottom"></div>
+                </div>
+
+                <!-- Extra floating decorations -->
+                <div class="moment-extra-item m-flower-1">🌸</div>
+                <div class="moment-extra-item m-flower-2">🌺</div>
+                <div class="moment-extra-item m-sparkle-1">✨</div>
+                <div class="moment-extra-item m-sparkle-2">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         PAGE 5: NADA YANG TERTINGGAL
+    =============================== -->
+    <section class="page" id="page-5">
+        <div class="page-content playlist-layout">
+            <button class="btn-back btn-overlay-back" data-page="page-2" style="z-index: 100;">← Kembali</button>
+            <div class="scene" style="position: relative; width: 100%; height: 60vh; display: flex; justify-content: center; align-items: center; margin-top: 10vh;">
+                <!-- Keseluruhan Lubang -->
+                <div class="slot-container">
+                    
+                    <!-- Dasar & Lubang Hitam -->
+                    <div class="slot-full"></div>
+                    
+                    <!-- Area Amplop Muncul (Tertutup bagian lain saat di bawah) -->
+                    <div class="envelope-mask">
+                        <div class="envelope-wrapper-slot" id="env-wrapper-page5">
+                            <div class="env-back"></div>
+                            
+                            <!-- Isi Surat -->
+                            <div class="letter-slot" id="letter-page5">
+                                <h2 class="letter-title-slot">Untukmu</h2>
+                                <div class="letter-line-slot"></div>
+                                <p class="letter-content-slot">
+                                    Setiap detik yang kita lewati,<br>
+                                    menjadi kisah yang paling indah dalam hidupku.<br>
+                                    Bahkan saat lagu-lagu itu terhenti,<br>
+                                    aku akan selalu ada untukmu... 💕
+                                </p>
+                            </div>
+                            
+                            <!-- Potongan Amplop -->
+                            <div class="env-flap" id="env-flap-page5"></div>
+                            <div class="env-body"></div>
+                            <div class="env-seal">✦</div>
+                        </div>
+                    </div>
+
+                    <!-- Bibir Bawah Celah (Depan) -->
+                    <div class="slot-bottom-lip"></div>
+
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ==============================
+         PAGE 6: GAME BUCIN
+    =============================== -->
+    <section class="page" id="page-6">
+        <div class="page-content game-layout">
+            <button class="btn-back btn-overlay-back" data-page="page-2">← Kembali</button>
+            <div class="catch-game-container">
+                <canvas id="catch-canvas"></canvas>
+                <div id="catch-ui">
+                    <div class="catch-header">
+                        <h3>Tangkap Cintaku 💖</h3>
+                        <div class="catch-stats">
+                            <span class="catch-score">Skor: <strong id="catch-score-val">0</strong></span>
+                            <span class="catch-lives">Nyawa: <strong id="catch-lives-val">❤️❤️❤️</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="catch-overlay" class="catch-overlay">
+                    <div class="catch-overlay-box">
+                        <h4 id="catch-overlay-title">Tangkap Hati &amp; Kado!</h4>
+                        <p id="catch-overlay-desc">Geser keranjang ke kiri dan kanan untuk menangkap, pastikan tidak
+                            mengambil hati yang retak (💔)!</p>
+                        <p id="catch-final-score" class="hidden">Skor Akhir: <span>0</span></p>
+                        <button class="btn-primary" id="btn-catch-start">Mulai Main</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         PAGE 7: PLAYLIST LAGU
+    =============================== -->
+    <section class="page" id="page-7">
+        <div class="page-content playlist-page-layout">
+            <button class="btn-back" data-page="page-2" id="btn-playlist-back">← Kembali</button>
+
+            <!-- Decorative Border -->
+            <div class="pl-border-decor">
+                <div class="pl-corner pl-corner-tl">
+                    <span class="pl-tulip">🌷</span>
+                    <span class="pl-note">♪</span>
+                </div>
+                <div class="pl-corner pl-corner-tr">
+                    <span class="pl-tulip">🌷</span>
+                    <span class="pl-note">♪</span>
+                </div>
+                <div class="pl-border-top">
+                    <span class="pl-tulip">🌷</span>
+                    <span class="pl-note">♫</span>
+                    <span class="pl-flower-deco">🌸</span>
+                    <span class="pl-note">♪</span>
+                    <span class="pl-tulip">🌷</span>
+                </div>
+            </div>
+
+            <!-- Notice Card -->
+            <div class="pl-notice-card">
+                <div class="pl-notice-badge">📌 NOTICE</div>
+                <p class="pl-notice-text">I made just for you! I hope you love these songs as much as I love you.</p>
+                <div class="pl-readme-btn">Read me ♡</div>
+            </div>
+
+            <!-- Song Cards Container -->
+            <div class="pl-songs-container">
+
+                <!-- Song 1 -->
+                <div class="pl-song-row">
+                    <div class="pl-song-card"
+                        data-src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"
+                        data-title="is a conduit of love" data-artist="Iran">
+                        <div class="pl-song-art" style="background: linear-gradient(135deg, #8B4513, #A0522D);"></div>
+                        <div class="pl-song-details">
+                            <div class="pl-song-name">is a conduit of love</div>
+                            <div class="pl-song-artist">Lumang Karitx · Zild</div>
+                            <div class="pl-song-progress-row">
+                                <div class="pl-mini-progress">
+                                    <div class="pl-mini-progress-fill"></div>
+                                </div>
+                                <span class="pl-song-duration">00:00</span>
+                            </div>
+                        </div>
+                        <button class="pl-play-btn">▶</button>
+                    </div>
+                    <div class="pl-song-message">
+                        <span class="pl-heart-icon">❤️</span> Replace the songs with some dear to you + replace this
+                        text with your favorite lyrics from the song!
+                    </div>
+                </div>
+
+                <!-- Song 2 -->
+                <div class="pl-song-row">
+                    <div class="pl-song-card"
+                        data-src="https://www.bensound.com/bensound-music/bensound-love.mp3"
+                        data-title="Lover" data-artist="Taylor Swift">
+                        <div class="pl-song-art" style="background: linear-gradient(135deg, #d4a0a0, #e8c4b8);"></div>
+                        <div class="pl-song-details">
+                            <div class="pl-song-name">Lover</div>
+                            <div class="pl-song-artist">Taylor Swift</div>
+                            <div class="pl-song-progress-row">
+                                <div class="pl-mini-progress">
+                                    <div class="pl-mini-progress-fill"></div>
+                                </div>
+                                <span class="pl-song-duration">3:41</span>
+                            </div>
+                        </div>
+                        <button class="pl-play-btn">▶</button>
+                    </div>
+                    <div class="pl-song-message">
+                        <span class="pl-heart-icon">❤️</span> Replace the songs with some dear to you + replace this
+                        text with your favorite lyrics from the song!
+                    </div>
+                </div>
+
+                <!-- Song 3 -->
+                <div class="pl-song-row">
+                    <div class="pl-song-card"
+                        data-src="https://www.bensound.com/bensound-music/bensound-memories.mp3"
+                        data-title="Paninimdigan Kita" data-artist="Ben&Ben">
+                        <div class="pl-song-art" style="background: linear-gradient(135deg, #5c3a2e, #8B6F47);"></div>
+                        <div class="pl-song-details">
+                            <div class="pl-song-name">Paninimdigan Kita</div>
+                            <div class="pl-song-artist">Ben&amp;Ben</div>
+                            <div class="pl-song-progress-row">
+                                <div class="pl-mini-progress">
+                                    <div class="pl-mini-progress-fill"></div>
+                                </div>
+                                <span class="pl-song-duration">5:12</span>
+                            </div>
+                        </div>
+                        <button class="pl-play-btn">▶</button>
+                    </div>
+                    <div class="pl-song-message">
+                        <span class="pl-heart-icon">❤️</span> Replace the songs with some dear to you + replace this
+                        text with your favorite lyrics from the song!
+                    </div>
+                </div>
+
+                <!-- Song 4 -->
+                <div class="pl-song-row">
+                    <div class="pl-song-card"
+                        data-src="https://www.bensound.com/bensound-music/bensound-dreams.mp3"
+                        data-title="About You" data-artist="The 1975">
+                        <div class="pl-song-art" style="background: linear-gradient(135deg, #4a3728, #6b4f3a);"></div>
+                        <div class="pl-song-details">
+                            <div class="pl-song-name">About You</div>
+                            <div class="pl-song-artist">The 1975</div>
+                            <div class="pl-song-progress-row">
+                                <div class="pl-mini-progress">
+                                    <div class="pl-mini-progress-fill"></div>
+                                </div>
+                                <span class="pl-song-duration">5:26</span>
+                            </div>
+                        </div>
+                        <button class="pl-play-btn">▶</button>
+                    </div>
+                    <div class="pl-song-message">
+                        <span class="pl-heart-icon">❤️</span> Replace the songs with some dear to you + replace this
+                        text with your favorite lyrics from the song!
+                    </div>
+                </div>
+
+                <!-- Song 5 -->
+                <div class="pl-song-row">
+                    <div class="pl-song-card"
+                        data-src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3"
+                        data-title="Romantic" data-artist="Bensound">
+                        <div class="pl-song-art" style="background: linear-gradient(135deg, #7a4e3a, #a67c5b);"></div>
+                        <div class="pl-song-details">
+                            <div class="pl-song-name">Romantic</div>
+                            <div class="pl-song-artist">Bensound</div>
+                            <div class="pl-song-progress-row">
+                                <div class="pl-mini-progress">
+                                    <div class="pl-mini-progress-fill"></div>
+                                </div>
+                                <span class="pl-song-duration">3:52</span>
+                            </div>
+                        </div>
+                        <button class="pl-play-btn">▶</button>
+                    </div>
+                    <div class="pl-song-message">
+                        <span class="pl-heart-icon">❤️</span> Replace the songs with some dear to you + replace this
+                        text with your favorite lyrics from the song!
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Decorations -->
+            <div class="pl-border-bottom">
+                <span class="pl-tulip">🌷</span>
+                <span class="pl-note">♪</span>
+                <span class="pl-flower-deco">🌸</span>
+                <span class="pl-note">♫</span>
+                <span class="pl-tulip">🌷</span>
+            </div>
+
+            <audio id="playlist-audio"></audio>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+    <script src="playlist.js"></script>
+    <script src="flower-heart.js"></script>
+</body>
+
+</html>
