@@ -475,14 +475,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!page6.classList.contains('active')) {
                 catchGameRunning = false;
                 if (catchOverlay) {
-                    catchOverlay.classList.remove('hidden'); // Show start screen when returning
+                    catchOverlay.classList.remove('hidden'); 
                     if (catchOverlayTitle) catchOverlayTitle.innerText = "Tangkap Hati & Kado!";
                     if (catchOverlayDesc) catchOverlayDesc.innerText = "Geser keranjang ke kiri dan kanan untuk menangkap, pastikan tidak mengambil hati yang retak (💔)!";
                     if (btnCatchStart) btnCatchStart.innerText = "Mulai Main";
                     if (catchFinalScore) catchFinalScore.classList.add('hidden');
                 }
             } else if (!catchGameRunning) {
-                resizeCatchCanvas();
+                // Auto-start game on enter instead of waiting for button
+                startCatchGame();
             }
         });
         observerCatch.observe(page6, { attributes: true, attributeFilter: ['class'] });

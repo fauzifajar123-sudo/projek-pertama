@@ -588,10 +588,10 @@ body {
 
 /* Photos */
 .pop-photo {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
     background: white;
-    padding: 5px;
+    padding: 6px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
@@ -601,8 +601,8 @@ body {
 
 /* Left Photo - Ripped Heart Concept */
 .ripped-heart {
-    width: 140px;
-    height: 160px;
+    width: 180px;
+    height: 200px;
     padding: 0;
     background: white;
     clip-path: polygon(10% 0, 90% 5%, 100% 40%, 85% 80%, 45% 100%, 15% 75%, 0 35%);
@@ -646,8 +646,8 @@ body {
 
 /* Right Polaroids (Stack of 3) */
 .polaroid {
-    width: 75px;
-    height: 90px;
+    width: 105px;
+    height: 125px;
     padding: 4px;
     padding-bottom: 20px;
     /* Polaroid bottom */
@@ -763,6 +763,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    z-index: 100;
 }
 
 .btn-primary::before {
@@ -2250,7 +2251,7 @@ body {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 60px 15px 30px;
     gap: 16px;
@@ -3128,7 +3129,7 @@ body {
     width: 80%;
     max-width: 320px;
     height: 50px;
-    margin: 0 auto;
+    margin: 30px auto 0;
 }
 
 .slot-full {
@@ -3155,23 +3156,23 @@ body {
 
 .envelope-mask {
     position: absolute;
-    bottom: 50%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 30px);
-    height: 350px;
+    height: 450px;
     overflow: hidden;
     z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .envelope-wrapper-slot {
     position: relative;
     width: 230px;
     height: 150px;
-    transform: translateY(100%);
+    transform: translateY(-100%);
     z-index: 1;
 }
 
@@ -3179,19 +3180,19 @@ body {
     position: absolute;
     inset: 0;
     background: linear-gradient(145deg, #6b0018, #8B0000);
-    border-radius: 6px 6px 0 0;
+    border-radius: 0 0 6px 6px;
     z-index: 1;
 }
 
 .env-flap {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     height: 50%;
     background: linear-gradient(170deg, #7a001a, #9b0022);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transform-origin: top center;
+    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+    transform-origin: bottom center;
     transition: transform 0.8s ease;
     z-index: 5;
 }
@@ -3202,18 +3203,18 @@ body {
 
 .env-body {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
     height: 55%;
     background: linear-gradient(10deg, #5a0012, #7a001a);
-    clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 100%, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 0, 0 100%);
     z-index: 3;
 }
 
 .env-seal {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.2rem;
@@ -3224,26 +3225,26 @@ body {
 
 .letter-slot {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 8%;
     right: 8%;
-    bottom: 20%;
+    height: 10px;
     background: #fff;
     border-radius: 4px;
     z-index: 2;
-    padding: 12px 10px;
+    padding: 15px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    transform: translateY(0);
     opacity: 0;
-    transition: transform 0.8s ease, opacity 0.5s ease;
+    overflow: hidden;
+    transition: height 1.8s steps(8, end), opacity 0.5s ease;
 }
 
 .letter-slot.slide-out {
-    transform: translateY(-80%);
+    height: 380px;
     opacity: 1;
 }
 
@@ -3288,14 +3289,14 @@ body {
     border-radius: 0 0 8px 8px;
 }
 
-/* Page 5 envelope rise animation */
+/* Page 5 envelope drop animation */
 @keyframes riseStutter {
-    0% { transform: translateY(100%); }
-    20% { transform: translateY(60%); }
-    30% { transform: translateY(65%); }
-    50% { transform: translateY(20%); }
-    60% { transform: translateY(25%); }
-    80% { transform: translateY(-5%); }
+    0% { transform: translateY(-100%); }
+    20% { transform: translateY(-60%); }
+    30% { transform: translateY(-65%); }
+    50% { transform: translateY(-20%); }
+    60% { transform: translateY(-25%); }
+    80% { transform: translateY(5%); }
     90% { transform: translateY(0%); }
     100% { transform: translateY(0%); }
 }
@@ -4267,6 +4268,7 @@ body {
         padding: 50px 12px 30px;
         gap: 16px;
         overflow-y: auto;
+        justify-content: flex-start;
         align-items: center;
     }
     .btn-tap-back {
@@ -4652,3 +4654,64 @@ body {
     0% { transform: scale(1.1) rotate(8deg); opacity: 1; }
     100% { transform: scale(0.9) rotate(-8deg); opacity: 0.85; }
 }
+
+/* ===========================
+   PAGE 3: PORTRAIT OVERRIDES
+=========================== */
+.scrapbook-layout {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+.scrapbook-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    min-height: 2900px !important;
+    height: auto !important;
+    transform: none !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+}
+
+/* Base Checkers resizing */
+.scrap-bg-checkers {
+    height: 100% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
+/* Re-position all items */
+.pol-main { top: 100px !important; left: 10% !important; right: auto !important; }
+.scrap-fish-sticker { top: 120px !important; right: 5% !important; left: auto !important; }
+.scrap-tap-sticker { top: 20px !important; right: 20px !important; left: auto !important; }
+.pol-sunset { top: 350px !important; right: 10% !important; left: auto !important; }
+.scrap-lemon-sticker { top: 380px !important; left: 5% !important; right: auto !important; }
+.scrap-receipt-box { top: 550px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) rotate(-2deg) !important; }
+.pol-sweet { top: 750px !important; left: 10% !important; right: auto !important; }
+.scrap-main-girl { top: 850px !important; right: 10% !important; left: auto !important; }
+.scrap-trust-sticker { top: 1050px !important; left: 5% !important; right: auto !important; }
+.pol-soho { top: 1150px !important; right: 15% !important; left: auto !important; }
+.scrap-film { top: 1350px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) rotate(-6deg) !important; }
+.scrap-oval-frame { top: 1500px !important; left: 10% !important; right: auto !important; }
+.scrap-cassette { top: 1680px !important; right: 5% !important; left: auto !important; }
+.scrap-second-girl { top: 1850px !important; left: 15% !important; right: auto !important; }
+.scrap-orange-card { top: 2050px !important; right: 10% !important; left: auto !important; }
+.scrap-ticket { top: 2250px !important; left: 10% !important; right: auto !important; }
+.scrap-money { top: 2400px !important; right: 10% !important; left: auto !important; }
+.scrap-clock { top: 2550px !important; left: 15% !important; right: auto !important; }
+.scrap-airplane { top: 2650px !important; right: 5% !important; left: auto !important; }
+.scrap-rose { top: 2750px !important; left: 20% !important; right: auto !important; }
+.scrap-red-girl-cut { top: 2800px !important; right: 20% !important; left: auto !important; }
+
+/* Keep photos a good size */
+.pol-main .pol-photo { width: 180px !important; height: 220px !important; }
+.pol-photo { width: 150px !important; height: 150px !important; }
+.film-photo { width: 180px !important; height: 130px !important; }
+.oval-border { width: 150px !important; height: 180px !important; }
+.card-bg { width: 240px !important; height: 140px !important; }
+.card-image { width: 130px !important; }
+
+/* Ensure back button stays fixed */
+.scrap-back { position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 999 !important; }
