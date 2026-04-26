@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const scaleX = W * 0.030;
         const scaleY = H * 0.022;
 
-        const numFlowers = 120;
+        const numFlowers = 60;
         for (let i = 0; i < numFlowers; i++) {
             const t = (i / numFlowers) * Math.PI * 2;
 

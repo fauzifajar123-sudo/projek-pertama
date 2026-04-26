@@ -274,7 +274,8 @@ body {
     width: clamp(300px, 75vw, 420px);
     height: clamp(220px, 55vw, 310px);
     transition: transform 0.3s var(--ease-smooth);
-    filter: drop-shadow(0 20px 60px rgba(139, 0, 0, 0.5));
+    filter: drop-shadow(0 10px 30px rgba(139, 0, 0, 0.4));
+    will-change: transform;
 }
 
 .envelope:hover {
@@ -339,7 +340,8 @@ body {
     transform-style: preserve-3d;
     transition: transform 0.8s var(--ease-smooth);
     z-index: 5;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+    will-change: transform;
 }
 
 .envelope-flap::after {
@@ -478,10 +480,10 @@ body {
 .pop-item {
     position: absolute;
     opacity: 0;
-    transition: all 0.8s var(--ease-bounce);
+    transition: transform 0.8s var(--ease-bounce), opacity 0.8s var(--ease-bounce);
     transform: scale(0.2) translate(0, 0);
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
-    /* 3D pop shadow */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    will-change: transform, opacity;
 }
 
 .pop-flower {
@@ -941,29 +943,28 @@ body {
    PAGE 3: SCRAPBOOK JOURNEY
 =========================== */
 .scrapbook-layout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: 100vw;
     height: 100vh;
     padding: 0;
     max-width: 100%;
+    overflow: hidden;
 }
 
-
-
-
 .scrapbook-container {
-    position: relative;
+    position: absolute;
     width: 1440px !important;
     height: 900px !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(min(calc(100vw / 1440), calc(100vh / 900)));
+    transform-origin: center center;
     max-width: none;
     border-radius: 0;
     background-color: var(--dark);
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     font-family: var(--font-body);
-    transform-origin: center center;
-    transform: scale(min(calc(100vw / 1440), calc(100vh / 900)));
 }
 
 /* Base Checkers */

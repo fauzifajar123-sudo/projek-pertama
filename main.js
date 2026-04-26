@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const petalSymbols = ['🌹', '🌸', '❤️', '✨', '💕', '🌺'];
 
     function createPetal() {
-        if (!petalsContainer) return;
+        if (!petalsContainer || currentPage !== 'page-1') return;
         const el = document.createElement('span');
         el.classList.add('petal');
         el.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
