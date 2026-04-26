@@ -452,17 +452,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function endCatchGame() {
         catchGameRunning = false;
         cancelAnimationFrame(catchAnimationFrame);
-        if (catchOverlay) {
-            catchOverlay.classList.remove('hidden');
-            if (catchOverlayTitle) catchOverlayTitle.innerText = "Game Over! 💔";
-            if (catchOverlayDesc) catchOverlayDesc.innerText = "Nyawa kamu habis. Coba lagi?";
-            if (btnCatchStart) btnCatchStart.innerText = "Main Lagi";
-        }
-        if (catchFinalScore) {
-            catchFinalScore.classList.remove('hidden');
-            const scoreSpan = catchFinalScore.querySelector('span');
-            if (scoreSpan) scoreSpan.innerText = catchScore;
-        }
+        
+        // Auto-restart game after 2 seconds
+        setTimeout(() => {
+            const page6 = document.getElementById('page-6');
+            if (page6 && page6.classList.contains('active')) {
+                startCatchGame();
+            }
+        }, 2000);
     }
 
     if (btnCatchStart) {
@@ -484,6 +481,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (!catchGameRunning) {
                 // Auto-start game on enter instead of waiting for button
                 startCatchGame();
+                if (catchOverlay) {
+                    catchOverlay.classList.add('hidden');
+                }
             }
         });
         observerCatch.observe(page6, { attributes: true, attributeFilter: ['class'] });
@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Pastikan class reset terlebih dahulu (jika dibuka ulang)
                 envWrapper.style.animation = 'none';
                 envWrapper.offsetHeight; // trigger reflow
-                envWrapper.style.animation = 'riseStutter 3.2s 0.5s ease-out forwards';
+                envWrapper.style.animation = 'riseStutter 3.2s 0.5s steps(6, end) forwards';
                 
                 envFlap.classList.remove('open');
                 letter.classList.remove('slide-out');

@@ -4715,3 +4715,73 @@ body {
 
 /* Ensure back button stays fixed */
 .scrap-back { position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 999 !important; }
+/* ===========================
+   OVERRIDES FOR BUG FIXES & LAYOUT UPDATES
+   =========================== */
+/* Task 1: Enlarge photos & fix button z-index */
+.pop-photo { width: 160px !important; height: 160px !important; }
+.ripped-heart { width: 210px !important; height: 230px !important; }
+.polaroid { width: 130px !important; height: 150px !important; }
+.btn-primary { z-index: 1000 !important; }
+
+/* Task 2: Vertical Scrapbook Layout */
+.scrapbook-layout {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+.scrapbook-container {
+    width: 100% !important;
+    max-width: 480px !important;
+    min-height: 2500px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+}
+
+/* Vertically distribute all scrapbook items */
+.pol-main { top: 60px !important; left: 10% !important; }
+.pol-sunset { top: 220px !important; left: 38% !important; }
+.pol-sweet { top: 380px !important; left: 50% !important; transform: translateX(-50%) rotate(12deg) !important; }
+.pol-soho { top: 560px !important; left: auto !important; right: 10% !important; }
+.scrap-film { top: 740px !important; left: 5% !important; }
+.scrap-oval-frame { top: 920px !important; left: 38% !important; }
+.scrap-cassette { top: 1100px !important; left: auto !important; right: 10% !important; }
+.scrap-ticket { top: 1260px !important; left: 30% !important; }
+.scrap-money { top: 1400px !important; left: auto !important; right: 10% !important; }
+.scrap-airplane { top: 1580px !important; left: 5% !important; }
+.scrap-clock { top: 1720px !important; left: 15% !important; }
+.scrap-orange-card { top: 1880px !important; left: auto !important; right: 15% !important; }
+.scrap-trust-sticker { top: 2020px !important; left: auto !important; right: 10% !important; }
+.scrap-fish-sticker { top: 2120px !important; left: 5% !important; }
+.scrap-tap-sticker { top: 10px !important; right: 10px !important; }
+.scrap-main-girl { top: 2200px !important; left: 50% !important; transform: translateX(-50%) rotate(-2deg) !important; }
+.scrap-second-girl { top: 2300px !important; left: 10% !important; }
+.scrap-receipt-box { top: 2350px !important; right: 5% !important; left: auto !important; }
+.scrap-lemon-sticker { top: 2450px !important; left: 50% !important; transform: translateX(-50%) rotate(-5deg) !important; }
+.scrap-photobooth { top: 140px !important; left: auto !important; right: 5% !important; }
+.scrap-peach-sticker { top: 300px !important; left: 5% !important; }
+.scrap-pepsi-sticker { top: 480px !important; left: 5% !important; }
+.scrap-white-flower { top: 660px !important; left: auto !important; right: 5% !important; }
+.scrap-blue-ribbon { top: 850px !important; left: 10% !important; }
+.scrap-rose { top: 1050px !important; left: 5% !important; }
+.scrap-red-girl-cut { top: 1200px !important; left: 5% !important; }
+.star-bottom-right { top: 2450px !important; right: 20px !important; }
+
+/* Task 3: Moment Scroll Bug Fix */
+.moment-scallop-layout {
+    overflow: hidden !important;
+    height: 100dvh !important;
+}
+.moment-scene {
+    height: 100% !important;
+    max-height: 100dvh !important;
+    overflow-y: auto !important;
+}
+
+/* Task 5: Slot position */
+.slot-container {
+    bottom: 5% !important;
+}
