@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = document.createElement('span');
         el.classList.add('petal');
         el.textContent = petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
-        el.style.left = Math.random() * 100 + 'vw';
+        el.style.left = Math.random() * 100 + '%';
         el.style.top = '-20px';
         el.style.fontSize = (Math.random() * 0.8 + 0.6) + 'rem';
         el.style.animationDuration = (Math.random() * 8 + 8) + 's';
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resizeConfettiCanvas() {
         if (!confettiCanvas) return;
-        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.width = document.body.clientWidth;
         confettiCanvas.height = window.innerHeight;
     }
 
