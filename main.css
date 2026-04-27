@@ -41,7 +41,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--dark);
+    background: linear-gradient(to bottom, rgba(20, 5, 10, 0.8), rgba(40, 10, 20, 0.9));
     color: var(--cream);
     overflow: hidden;
     height: 100dvh;
@@ -974,7 +974,7 @@ body {
     transform-origin: center center;
     max-width: none;
     border-radius: 0;
-    background-color: var(--dark);
+    background: transparent;
     overflow: visible;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     font-family: var(--font-body);
@@ -982,16 +982,7 @@ body {
 
 /* Base Checkers */
 .scrap-bg-checkers {
-    position: absolute;
-    inset: -50%;
-    width: 200%;
-    height: 200%;
-    background-image:
-        linear-gradient(45deg, rgba(139, 0, 0, 0.15) 25%, transparent 25%, transparent 75%, rgba(139, 0, 0, 0.15) 75%, rgba(139, 0, 0, 0.15)),
-        linear-gradient(45deg, rgba(139, 0, 0, 0.15) 25%, transparent 25%, transparent 75%, rgba(139, 0, 0, 0.15) 75%, rgba(139, 0, 0, 0.15));
-    background-size: 60px 60px;
-    background-position: 0 0, 30px 30px;
-    z-index: 0;
+    display: none;
 }
 
 .scrap-back {
@@ -4791,12 +4782,12 @@ body {
    =========================== */
 
 /* Page 1: Push photos further out to avoid overlaps */
-.envelope-wrapper.opening .photo-left { transform: scale(1.1) translate(-150px, 20px) rotate(-10deg) !important; }
-.envelope-wrapper.opening .pol-1 { transform: scale(1.1) translate(140px, -50px) rotate(15deg) !important; }
-.envelope-wrapper.opening .pol-2 { transform: scale(1.2) translate(160px, 30px) rotate(5deg) !important; }
-.envelope-wrapper.opening .pol-3 { transform: scale(1.1) translate(120px, 110px) rotate(-10deg) !important; }
-.envelope-wrapper.opening .flower-1 { transform: scale(1.4) translate(-110px, -90px) rotate(-25deg) !important; }
-.envelope-wrapper.opening .flower-3 { transform: scale(1.5) translate(100px, -80px) rotate(15deg) !important; }
+.envelope-wrapper.opening .photo-left { transform: scale(1.1) translate(-130px, -30px) rotate(-10deg) !important; }
+.envelope-wrapper.opening .pol-1 { transform: scale(1.1) translate(120px, -60px) rotate(15deg) !important; }
+.envelope-wrapper.opening .pol-2 { transform: scale(1.2) translate(140px, 0px) rotate(5deg) !important; }
+.envelope-wrapper.opening .pol-3 { transform: scale(1.1) translate(110px, 50px) rotate(-10deg) !important; }
+.envelope-wrapper.opening .flower-1 { transform: scale(1.4) translate(-100px, -100px) rotate(-25deg) !important; }
+.envelope-wrapper.opening .flower-3 { transform: scale(1.5) translate(90px, -90px) rotate(15deg) !important; }
 
 /* Page 3: Tidy up Journey by extending container and spacing items heavily */
 .scrapbook-container {
