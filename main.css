@@ -4785,3 +4785,65 @@ body {
 .slot-container {
     bottom: 5% !important;
 }
+
+/* ===========================
+   FOLLOW-UP OVERRIDES
+   =========================== */
+
+/* Page 1: Push photos further out to avoid overlaps */
+.envelope-wrapper.opening .photo-left { transform: scale(1.1) translate(-150px, 20px) rotate(-10deg) !important; }
+.envelope-wrapper.opening .pol-1 { transform: scale(1.1) translate(140px, -50px) rotate(15deg) !important; }
+.envelope-wrapper.opening .pol-2 { transform: scale(1.2) translate(160px, 30px) rotate(5deg) !important; }
+.envelope-wrapper.opening .pol-3 { transform: scale(1.1) translate(120px, 110px) rotate(-10deg) !important; }
+.envelope-wrapper.opening .flower-1 { transform: scale(1.4) translate(-110px, -90px) rotate(-25deg) !important; }
+.envelope-wrapper.opening .flower-3 { transform: scale(1.5) translate(100px, -80px) rotate(15deg) !important; }
+
+/* Page 3: Tidy up Journey by extending container and spacing items heavily */
+.scrapbook-container {
+    min-height: 4000px !important;
+}
+
+.pol-main { top: 60px !important; left: 5% !important; }
+.pol-sunset { top: 300px !important; left: 30% !important; }
+.pol-sweet { top: 550px !important; left: 50% !important; transform: translateX(-50%) rotate(12deg) !important; }
+.pol-soho { top: 800px !important; left: auto !important; right: 5% !important; }
+.scrap-film { top: 1050px !important; left: 5% !important; }
+.scrap-oval-frame { top: 1300px !important; left: 35% !important; }
+.scrap-cassette { top: 1550px !important; left: auto !important; right: 5% !important; }
+.scrap-ticket { top: 1750px !important; left: 25% !important; }
+.scrap-money { top: 1950px !important; left: auto !important; right: 5% !important; }
+.scrap-airplane { top: 2150px !important; left: 5% !important; }
+.scrap-clock { top: 2350px !important; left: 15% !important; }
+.scrap-orange-card { top: 2550px !important; left: auto !important; right: 10% !important; }
+.scrap-trust-sticker { top: 2750px !important; left: auto !important; right: 5% !important; }
+.scrap-fish-sticker { top: 2900px !important; left: 5% !important; }
+.scrap-main-girl { top: 3100px !important; left: 50% !important; transform: translateX(-50%) rotate(-2deg) !important; }
+.scrap-second-girl { top: 3350px !important; left: 10% !important; }
+.scrap-receipt-box { top: 3550px !important; right: 5% !important; left: auto !important; }
+.scrap-lemon-sticker { top: 3750px !important; left: 50% !important; transform: translateX(-50%) rotate(-5deg) !important; }
+
+/* Page 3: Secondary elements distributed into gaps */
+.scrap-tap-sticker { top: 10px !important; right: 10px !important; }
+.scrap-photobooth { top: 180px !important; left: auto !important; right: 5% !important; }
+.scrap-peach-sticker { top: 400px !important; left: 5% !important; }
+.scrap-pepsi-sticker { top: 680px !important; left: 5% !important; }
+.scrap-white-flower { top: 930px !important; left: auto !important; right: 5% !important; }
+.scrap-blue-ribbon { top: 1200px !important; left: 10% !important; }
+.scrap-rose { top: 1450px !important; left: 5% !important; }
+.scrap-red-girl-cut { top: 1650px !important; left: 5% !important; }
+.star-bottom-right { top: 3900px !important; right: 20px !important; }
+
+/* Page 5: Move slot higher */
+.slot-container {
+    top: 30% !important;
+    bottom: auto !important;
+}
+
+/* Fix slot container position */
+.slot-container {
+    position: absolute !important;
+    top: 25% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+}
